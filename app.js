@@ -53,7 +53,7 @@ function Ball(x,y,radius,color){
             dy = - dy
         }
         if(this.y - radius/2 > canvas.height){
-            alert('thua gòi lại he :)')
+            // alert('thua gòi lại he :)')
             ball = new Ball(canvas.width/2,canvas.height/1.2,15,'black')
             dy = (Math.random()-0.5)*10 + 10
             bricks = []
@@ -140,12 +140,26 @@ function handleHitTheBrick(){
 // console.log(ball.x)
 function checkWin(){
     if(bricks.length == 0){
-        alert('Win òi! Lại he')
+        // alert('Win òi! Lại he')
         ball = new Ball(canvas.width/2,canvas.height/1.2,15,'black')
         bricks = []
         newBrick()
     }
 }
+    //mobile contral
+var position ;
+    canvas.addEventListener('touchmove',function(e){
+        let movePosition = e.targetTouches[0].screenX
+        pandle.x = movePosition
+        if(pandle.x + pandleWidth > canvas.width){
+            pandle.x = canvas.width - pandleWidth
+        }
+    })
+    canvas.addEventListener('touchstart',function(e){
+        position = e.targetTouches[0].screenX;
+        console.log(e)
+    })
+
 //loop
 function animation(){
     requestAnimationFrame(animation)
