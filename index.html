@@ -12,20 +12,49 @@
             box-sizing: border-box;
             overflow: hidden;
         }
+        html{
+        }
         body{
-            width: 100%;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         canvas{
             border: 1px solid black;
-
+            position: absolute;
+            height: 500px;
+            top:0;
+            margin: 0 auto;
+        }
+        div{
+            display: none;
+            position: absolute;
+            bottom: 100px;
+            gap:100px
+        }
+        button{
+            border: none;
+            background-color:black ;
+            color: white;
+            font-size: 27px;
+            font-weight: 900;
+            padding: 20px 45px;
+            border-radius: 10px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            user-select: none;
         }
     </style>
 </head>
 <body>
-    <canvas></canvas>
+        <canvas></canvas>
+    <div>
+        <button class="left"><<<</button>
+        <button class="right">>>></button>
+    </div>
     <script src="./app.js"></script>
 </body>
 </html>
